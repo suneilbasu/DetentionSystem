@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @detention.teacher %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @detention.student %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @detention.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @detention.time %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @detention.reason %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @detention.points %>
+</p>
+
+<p>
+  <strong>Parent detention:</strong>
+  <%= @detention.parent_detention %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @detention.status %>
+</p>
+
+<p>
+  <strong>Additional notes:</strong>
+  <%= @detention.additional_notes %>
+</p>
+
+<%= link_to 'Edit', edit_detention_path(@detention) %> |
+<%= link_to 'Back', detentions_path %>

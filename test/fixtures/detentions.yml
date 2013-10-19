@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  teacher_id: 
+  student_id: 
+  date: 
+  time: MyString
+  reason: MyString
+  points: 1
+  parent_detention: 1
+  status: MyString
+  additional_notes: MyText
+
+two:
+  teacher_id: 
+  student_id: 
+  date: 
+  time: MyString
+  reason: MyString
+  points: 1
+  parent_detention: 1
+  status: MyString
+  additional_notes: MyText

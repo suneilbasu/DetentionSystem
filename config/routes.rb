@@ -1,4 +1,6 @@
 DetentionSystem::Application.routes.draw do
+  resources :detentions
+
   resources :students
 
   resources :teachers

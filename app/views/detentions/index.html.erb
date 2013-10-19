@@ -1,0 +1,43 @@
+<h1>Listing detentions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Student</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Reason</th>
+      <th>Points</th>
+      <th>Parent detention</th>
+      <th>Status</th>
+      <th>Additional notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detentions.each do |detention| %>
+      <tr>
+        <td><%= detention.teacher %></td>
+        <td><%= detention.student %></td>
+        <td><%= detention.date %></td>
+        <td><%= detention.time %></td>
+        <td><%= detention.reason %></td>
+        <td><%= detention.points %></td>
+        <td><%= detention.parent_detention %></td>
+        <td><%= detention.status %></td>
+        <td><%= detention.additional_notes %></td>
+        <td><%= link_to 'Show', detention %></td>
+        <td><%= link_to 'Edit', edit_detention_path(detention) %></td>
+        <td><%= link_to 'Destroy', detention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detention', new_detention_path %>
