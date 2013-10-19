@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019182657) do
+ActiveRecord::Schema.define(version: 20131019184003) do
 
   create_table "detentions", force: true do |t|
     t.integer  "teacher_id"
