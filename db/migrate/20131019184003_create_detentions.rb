@@ -3,7 +3,7 @@ class CreateDetentions < ActiveRecord::Migration
     create_table :detentions do |t|
       t.references :teacher, index: true
       t.references :student, index: true
-      t.set_for :date
+      t.date :date
       t.string :time
       t.string :reason
       t.integer :points
