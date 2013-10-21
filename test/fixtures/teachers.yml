@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  email: MyString
-  group: MyString
-
-two:
-  name: MyString
-  email: MyString
-  group: MyString
+TestMcTest:
+  name: Test McTest
+  email: testmctest@testschool.com
+  group:

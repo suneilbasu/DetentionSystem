@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  teacher_id: 
-  student_id: 
-  date: 2013-10-19
-  time: MyString
-  reason: MyString
-  points: 1
+  teacher_id: 1
+  student_id: 1
+  date: 2014-10-19
+  time: afterschool
+  reason: no equipment
+  points: 2
   parent_detention: 1
-  status: MyString
-  additional_notes: MyText
+  status: set
+  additional_notes:
 
 two:
-  teacher_id: 
-  student_id: 
-  date: 2013-10-19
-  time: MyString
-  reason: MyString
-  points: 1
-  parent_detention: 1
-  status: MyString
-  additional_notes: MyText
+  teacher_id: 1
+  student_id: 2
+  date: 2014-10-19
+  time: afterschool
+  reason: fighting
+  points: 2
+  parent_detention:
+  status: set
+  additional_notes:
