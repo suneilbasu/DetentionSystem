@@ -21,8 +21,8 @@
   <tbody>
     <% @detentions.each do |detention| %>
       <tr>
-        <td><%= detention.teacher %></td>
-        <td><%= detention.student %></td>
+        <td><%= detention.teacher.name %></td>
+        <td><%= detention.student.name %></td>
         <td><%= detention.date %></td>
         <td><%= detention.time %></td>
         <td><%= detention.reason %></td>
