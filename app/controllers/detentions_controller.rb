@@ -4,7 +4,7 @@ class DetentionsController < ApplicationController
   # GET /detentions
   # GET /detentions.json
   def index
-    @detentions = Detention.all
+    @detentions = Detention.upcoming_separated_by_datetime
   end
 
   # GET /detentions/1
