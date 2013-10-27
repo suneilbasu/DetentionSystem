@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-TestMcTest:
+one:
   name: Test McTest
   email: testmctest@testschool.com
   group:

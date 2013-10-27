@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-Oleg:
+one:
   email: oleg@test.com
   name: Oleg Tsaplin
 
-George:
+two:
   email: george@test.com
   name: George Thomas
