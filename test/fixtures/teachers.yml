@@ -1,6 +1,3 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: Test McTest
-  email: testmctest@testschool.com
-  group:
+# Fixtures considered harmful
