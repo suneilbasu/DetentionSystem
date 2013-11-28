@@ -16,7 +16,24 @@ class DetentionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not create detention" do # one exists already
+    assert_no_difference('Detention.count') do
+      post :create, detention: {
+        additional_notes: @detention.additional_notes,
+        date: @detention.date,
+        parent_detention: @detention.parent_detention,
+        points: @detention.points,
+        reason: @detention.reason,
+        status: @detention.status,
+        student_id: @detention.student_id,
+        teacher_id: @detention.teacher_id,
+        time: @detention.time,
+      }
+    end
+  end
+
   test "should create detention" do
+    @detention.date = Date.tomorrow()
     assert_difference('Detention.count') do
       post :create, detention: {
         additional_notes: @detention.additional_notes,

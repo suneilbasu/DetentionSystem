@@ -16,7 +16,14 @@ class StudentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not create student" do
+    assert_no_difference('Student.count') do
+      post :create, student: { email: @student.email, name: @student.name }
+    end
+  end
+
   test "should create student" do
+    @student.email = "newemail@test.com"
     assert_difference('Student.count') do
       post :create, student: { email: @student.email, name: @student.name }
     end

@@ -16,9 +16,20 @@ class TeachersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not create teacher" do
+    assert_no_difference('Teacher.count') do
+      post :create, teacher: {
+        email: @teacher.email, group: @teacher.group, name: @teacher.name
+      }
+    end
+  end
+
   test "should create teacher" do
+    @teacher.email = "completelynewemail@test.com"
     assert_difference('Teacher.count') do
-      post :create, teacher: { email: @teacher.email, group: @teacher.group, name: @teacher.name }
+      post :create, teacher: {
+        email: @teacher.email, group: @teacher.group, name: @teacher.name
+      }
     end
 
     assert_redirected_to teacher_path(assigns(:teacher))
@@ -35,7 +46,8 @@ class TeachersControllerTest < ActionController::TestCase
   end
 
   test "should update teacher" do
-    patch :update, id: @teacher, teacher: { email: @teacher.email, group: @teacher.group, name: @teacher.name }
+    patch :update, id: @teacher, teacher: {
+      email: @teacher.email, group: @teacher.group, name: @teacher.name }
     assert_redirected_to teacher_path(assigns(:teacher))
   end
 
