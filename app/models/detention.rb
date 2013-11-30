@@ -11,9 +11,17 @@ class Detention < ActiveRecord::Base
   validates :status, inclusion: {in: %w(set done rescheduled escalated)}
 
   def self.upcoming_separated_by_datetime
-    all_dets = Detention.where("date > ? AND status = ?", Time.now, 'set')
-    unique_det_times = all_dets.uniq.pluck(:date, :time).map{ |det| {
-      DetTime.new(det[:date], det[:time]) => all_dets.where(date: det[:date], time: det[:time])
-    }}
+    all_dets = Detention.where("date > ? AND status = ?", Time.now, 'set').order(date: :asc, time: :desc)
+    unique_det_times = all_dets.uniq.pluck(:date, :time)
+    array = Array.new
+    unique_det_times.each do |datetime|
+      dt = DetTime.new(datetime[0], datetime[1])
+      array << [dt].push(all_dets.where(date: dt[:date], time: dt[:time]).to_a)
+    end
+    array
+  end
+
+  def self.pen
+    dets = Detention.where(date: nil)
   end
 end
