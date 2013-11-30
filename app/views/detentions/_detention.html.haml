@@ -1,0 +1,12 @@
+.detention
+  .title
+    = "#{detention[0][:date].strftime('%A')} #{detention[0][:time]} - #{detention[0][:date].strftime('%e %b')}"
+    .button Register
+  - if detention_counter == 0
+    .detention-header
+      .student-name Student
+      .detention-reason Reason
+      .points Points
+
+  %ul#selector
+    = render partial: "detention_row", collection: detention[1]
