@@ -1,0 +1,485 @@
+// Place all the styles related to the Detentions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  -webkit-font-smoothing: antialiased
+  color: #adb1b3
+  font-size: 13px
+  line-height: 32px
+
+a, .button, .modal-close
+  text-decoration: none
+  -webkit-transition: background-color 0.25s ease-in-out
+  -moz-transition: background-color 0.25s ease-in-out
+  -o-transition: background-color 0.25s ease-in-out
+  transition: background-color 0.25s ease-in-out
+  cursor: pointer
+
+a
+  -webkit-transition: color 0.25s ease-in-out
+  -moz-transition: color 0.25s ease-in-out
+  -o-transition: color 0.25s ease-in-out
+  transition: color 0.25s ease-in-out
+
+.button
+  background: #888d8f
+  color: white
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px
+  border-radius: 4px
+  display: inline-block
+  font-size: 14px
+  padding: 0px 14px 0px 14px
+  // font-family: 'Proxima Nova Semibold'
+  &:hover
+    background: #4d565a
+
+.inner
+  padding: 0 20px
+
+.title
+  padding: 8px 0
+  margin: 0 20px
+  position: relative
+  font-size: 14px
+  color: #adb1b3
+  // font-family: 'Proxima Nova Semibold'
+  .button
+    position: absolute
+    top: 8px
+    right: 0
+    background: #b5d544
+    &:hover
+      background: #a7cf1c
+
+.name
+  // font-family: 'Proxima Nova Semibold'
+  display: inline-block
+
+#sidebar
+  width: 270px
+  background: #4d565a
+  position: fixed
+  left: 0
+  top: 0
+  padding: 0
+  height: 100%
+  color: #adb1b3
+  .title
+    border-bottom: 1px solid #565e62
+    color: #dde1e3
+  .edit
+    position: absolute
+    top: 8px
+    right: 0
+    cursor: pointer
+    opacity: 0
+    -webkit-transition: all 0.25s ease-in-out
+    -moz-transition: all 0.25s ease-in-out
+    -o-transition: all 0.25s ease-in-out
+    transition: all 0.25s ease-in-out
+    &:hover
+      color: white
+  &:hover .edit, .edit.active
+    opacity: 1
+  ul li
+    margin: 20px 20px 0 20px
+    position: relative
+    color: white
+    font-size: 14px
+  .button
+    position: absolute
+    bottom: 20px
+    left: 20px
+    width: 194px
+    text-align: center
+    background: #24a8dd
+  ul li:hover .move
+    opacity: 1
+  .ui-sortable-helper
+    background: #4d565a
+    border: 1px dashed #3a3f41
+    padding: 10px
+    display: block
+    border-radius: 4px
+    -webkit-border-radius: 4px
+    z-index: 99999 !important
+    .controls
+      top: 10px
+      right: 10px
+  .controls
+    position: absolute
+    top: 0
+    right: 0
+    display: inline-block
+    padding: 9px 0
+
+.tag
+  -moz-border-radius: 14px
+  -webkit-border-radius: 14px
+  border-radius: 14px
+  width: 14px
+  height: 14px
+  cursor: pointer
+  position: relative
+  float: left
+
+.low
+  background: #a2e34d
+
+.medium
+  background: #eff157
+
+.high
+  background: #e38c4d
+
+.tag
+  &:hover .tooltip
+    opacity: 1
+    visibility: visible
+  &.active:hover .tooltip
+    opacity: 0
+    visibility: hidden
+
+.tooltip
+  background: #2c3133
+  color: white
+  line-height: 20px
+  padding: 0 5px
+  position: absolute
+  top: -3px
+  right: 20px
+  -moz-border-radius: 2px
+  -webkit-border-radius: 2px
+  border-radius: 2px
+  opacity: 0
+  visibility: hidden
+  -webkit-transition: all 0.25s ease-in-out
+  -moz-transition: all 0.25s ease-in-out
+  -o-transition: all 0.25s ease-in-out
+  transition: all 0.25s ease-in-out
+
+.delete
+  width: 14px
+  height: 14px
+  background: url(images/delete.png) center center no-repeat
+  background-size: 8px 8px
+  float: left
+  text-indent: -9999px
+  margin-left: -14px
+  visibility: hidden
+  cursor: pointer
+  opacity: 0
+  -webkit-transition: all 0.1s ease-in-out
+  -moz-transition: all 0.1s ease-in-out
+  -o-transition: all 0.1s ease-in-out
+  transition: all 0.1s ease-in-out
+
+.delele:hover
+  opacity: 1
+
+.delete.active
+  visibility: visible
+  margin-left: 10px
+  opacity: 0.6
+  &:hover
+    opacity: 1
+
+#content
+  margin-left: 270px
+  min-width: 1010px
+
+header
+  width: 100%
+  background: #ebeff0
+  // font-family: 'Proxima Nova Semibold'
+  font-size: 14px
+
+.user
+  background: #3a3f41
+  color: white
+  display: inline-block
+  width: 270px
+  padding: 10px 0
+  line-height: 40px
+  font-size: 14px
+  // font-family: 'Proxima Nova Semibold'
+
+.user-avatar
+  -webkit-border-radius: 80px
+  border-radius: 80px
+  display: inline-block
+  vertical-align: top
+  margin-right: 6px
+  background-position: center center
+  background-repeat: no-repeat
+
+.avatar
+  -webkit-border-radius: 80px
+  border-radius: 80px
+  display: inline-block
+  vertical-align: top
+  margin-right: 6px
+  background-position: center center
+  background-repeat: no-repeat
+  width: 32px
+  height: 32px
+  background-size: 32px 32px
+  background-image: asset-url("default.jpg", image)
+
+.user-avatar
+  width: 40px
+  height: 40px
+  background-size: 40px 40px
+  background-image: asset-url("default.jpg", image)
+
+#sidebar .move
+  -webkit-border-radius: 80px
+  border-radius: 80px
+  width: 32px
+  height: 32px
+  background-image: asset-url("move.png", image)
+  background-size: 32px 32px
+  background-color: rgba(255, 255, 255, 0.7)
+  background-position: center center
+  background-repeat: no-repeat
+  opacity: 0
+  cursor: pointer
+  -webkit-transition: all 0.25s ease-in-out
+  -moz-transition: all 0.25s ease-in-out
+  -o-transition: all 0.25s ease-in-out
+  transition: all 0.25s ease-in-out
+
+nav
+  display: inline-block
+  margin-left: 20px
+  padding: 14px 0
+  ul li
+    display: inline-block
+    margin-right: 20px
+    a
+      display: block
+      color: #9ca7ac
+      &:hover
+        color: #24a8dd
+
+#create-detention
+  position: absolute
+  top: 14px
+  right: 20px
+  background: #24a8dd
+  &:hover
+    background: #0b93d3
+
+#add-to-pen:hover
+  background: #0b93d3
+
+.detention-header
+  border-bottom: 1px solid #dbddde
+  padding: 8px 0
+  margin: 0 20px
+  font-size: 14px
+  color: #c4c5c6
+  // font-family: 'Proxima Nova Semibold'
+  > div
+    display: inline-block
+    margin-right: -4px
+
+#content
+  .title
+    border-bottom: 1px solid #dbddde
+    border-top: 1px solid #dbddde
+    color: #8a9193
+  .detention
+    margin-bottom: 32px
+    &:first-of-type .title
+      border-top: none
+    ul li
+      color: #3a3f41
+      margin: 20px 20px 0 20px
+      -webkit-transition: color 0.25s ease-in-out
+      -moz-transition: color 0.25s ease-in-out
+      -o-transition: color 0.25s ease-in-out
+      transition: color 0.25s ease-in-out
+      &:hover
+        color: #3a3f41
+      > div
+        display: inline-block
+        margin-right: -4px
+  .ui-sortable-helper
+    background: #f1fafc
+    border: 1px dashed #a2b1b4
+    padding: 10px
+    border-radius: 4px
+    right: -10px
+    width: 900px !important
+    -webkit-border-radius: 4px
+  .student-name
+    width: 25%
+    font-size: 14px
+  .detention-reason
+    width: 55%
+  .points
+    width: 5%
+  .controls
+    width: 15%
+    text-align: right
+  .move
+    width: 32px
+    height: 32px
+    background-image: url(images/move.png)
+    background-size: 32px 32px
+    background-position: center center
+    background-repeat: no-repeat
+    cursor: pointer
+    -webkit-transition: all 0.25s ease-in-out
+    -moz-transition: all 0.25s ease-in-out
+    -o-transition: all 0.25s ease-in-out
+    transition: all 0.25s ease-in-out
+    display: inline-block
+    vertical-align: top
+    opacity: 0
+    margin-right: 10px
+  ul li:hover .move
+    opacity: 0.4
+  .move:hover
+    opacity: 1 !important
+
+.sortable-placeholder
+  background: #0fa3e8
+  height: 2px
+  position: relative
+  z-index: 1
+  .move
+    opacity: 1 !important
+  &::before
+    width: 6px
+    height: 6px
+    background: #0fa3e8
+    content: ''
+    -webkit-border-radius: 6px
+    border-radius: 6px
+    margin-top: -2px
+    margin-left: -2px
+    position: absolute
+    top: 0
+    left: 0
+  &::after
+    width: 6px
+    height: 6px
+    background: #0fa3e8
+    content: ''
+    -webkit-border-radius: 6px
+    border-radius: 6px
+    margin-top: -2px
+    margin-right: -2px
+    position: absolute
+    top: 0
+    right: 0
+
+    //  #content .controls .button{
+    //   background: #dbddde;
+    // }
+    //    #content .controls .button:hover{
+    //     background: #888d8f;
+    //   }
+
+#add-detention-modal, #add-to-pen-modal
+  display: none
+
+.overlay
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  display: table
+  left: 0
+  background: rgba(0, 0, 0, 0.7)
+  text-align: center
+
+.modal-container
+  display: table-cell
+  vertical-align: middle
+
+.modal
+  width: 460px
+  text-align: left
+  display: inline-block
+
+.modal-top
+  background: #f1f2f3
+  border-bottom: 1px solid #dbddde
+  padding: 9px 20px
+  color: #adb1b3
+  // font-family: 'Proxima Nova Semibold'
+  -webkit-border-radius: 4px 4px 0 0
+  border-radius: 4px 4px 0 0
+  position: relative
+
+.modal-close
+  position: absolute
+  top: 0px
+  right: 0px
+  font-size: 20px
+  line-height: 50px
+  width: 50px
+  text-align: center
+  height: 50px
+  &:hover
+    color: #888d8f
+
+.modal-bottom
+  background: white
+  padding: 20px
+  -webkit-border-radius: 0 0 4px 4px
+  border-radius: 0 0 4px 4px
+
+.modal
+  label
+    color: #adb1b3
+    text-transform: uppercase
+    letter-spacing: 1px
+    display: block
+    line-height: 1
+    margin-bottom: 8px
+    font-size: 12px
+    // font-family: 'Proxima Nova Semibold'
+  .field
+    width: 100%
+    margin-bottom: 20px
+    display: inline-block
+  .left-field
+    width: 200px
+    margin-right: 16px
+    input
+      width: 170px
+  .right-field
+    input
+      width: 170px
+    width: 200px
+  input
+    border: 1px solid #dbddde
+    -moz-border-radius: 4px
+    -webkit-border-radius: 4px
+    border-radius: 4px
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+    font-size: 14px
+    line-height: 14px
+    padding: 13px 14px
+    outline: none
+    display: block
+    color: #888d8f
+    width: 390px
+    &[type='submit']
+      width: auto
+      color: white
+      outline: none
+      padding: 0 14px
+      border: none
+      line-height: 32px !important
+
+.loading
+  padding-left: 40px !important
+  background: #888d8f url(images/ajax-loader.gif) 14px center no-repeat !important
