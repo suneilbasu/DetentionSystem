@@ -12,6 +12,9 @@ group :development, :test do
   gem "sqlite3"
 end
 
+# Use HAML for HTML
+gem 'haml'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
