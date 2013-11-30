@@ -4,7 +4,7 @@ class Detention < ActiveRecord::Base
 
   DetTime = Struct.new(:date, :time)
 
-  validates_presence_of :teacher_id, :student_id, :date, :time, :reason,
+  validates_presence_of :teacher_id, :student_id, :reason,
   		:points, :parent_detention, :status
   validates_uniqueness_of :time, :scope => [:date, :student_id]
 
