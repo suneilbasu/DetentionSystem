@@ -13,11 +13,6 @@ class DetentionsController < ApplicationController
   def show
   end
 
-  # GET /detentions/new
-  def new
-    @detention = Detention.new
-  end
-
   # GET /detentions/1/edit
   def edit
   end
