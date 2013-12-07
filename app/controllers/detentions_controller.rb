@@ -6,6 +6,7 @@ class DetentionsController < ApplicationController
   def index
     @pen_detentions = Detention.pen
     @detentions = Detention.upcoming_separated_by_datetime
+    @detention = Detention.new
   end
 
   # GET /detentions/1
