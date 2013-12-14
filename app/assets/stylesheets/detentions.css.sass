@@ -164,7 +164,7 @@ a
 .delete
   width: 14px
   height: 14px
-  background: url(images/delete.png) center center no-repeat
+  background: asset-url("delete.png", image) center center no-repeat
   background-size: 8px 8px
   float: left
   text-indent: -9999px
@@ -329,7 +329,7 @@ nav
   .move
     width: 32px
     height: 32px
-    background-image: url(images/move.png)
+    background-image: asset-url("move.png", image)
     background-size: 32px 32px
     background-position: center center
     background-repeat: no-repeat
@@ -482,4 +482,4 @@ nav
 
 .loading
   padding-left: 40px !important
-  background: #888d8f url(images/ajax-loader.gif) 14px center no-repeat !important
+  background: #888d8f asset-url("ajax-loader.gif", image) 14px center no-repeat !important
