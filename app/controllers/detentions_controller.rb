@@ -22,13 +22,15 @@ class DetentionsController < ApplicationController
   # POST /detentions.json
   def create
     @detention = Detention.new(detention_params)
+    @detention.status = "set"
+    #TODO: Use logged-in teacher
+    @detention.teacher_id = 1
+    @detention.parent_detention = 0
 
     respond_to do |format|
       if @detention.save
-        format.html { redirect_to @detention, notice: 'Detention was successfully created.' }
         format.json { render action: 'show', status: :created, location: @detention }
       else
-        format.html { render action: 'new' }
         format.json { render json: @detention.errors, status: :unprocessable_entity }
       end
     end
