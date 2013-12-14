@@ -6,22 +6,10 @@
           Create Detention
           .modal-close &times;
         .modal-bottom
-          = form_for(@detention) do |f|
-            - if @detention.errors.any?
-              #error_explanation
-                %h2= "#{pluralize(@detention.errors.count, "error")} prohibited this detention from being saved:"
-                %ul
-                  - @detention.errors.full_messages.each do |msg|
-                    %li= msg
+          = form_for(@detention, remote: true) do |f|
             .field
               =f.label :student
               =f.select(:student_id, Student.all.collect {|s| [s.name, s.id] })
-            / .field
-            /   = f.label :teacher
-            /   = f.text_field :teacher
-            / .field
-            /   = f.label :student
-            /   = f.text_field :student
             .field
               = f.label :date
               = f.date_select :date
@@ -34,9 +22,6 @@
             .field
               = f.label :points
               = f.number_field :points
-            .field
-              = f.label :status
-              = f.text_field :status
             .field
               = f.label :additional_notes
               = f.text_area :additional_notes

@@ -8,17 +8,12 @@ $ ->
   $("#add-to-pen, #add-to-pen-modal .modal-close").click ->
     $("#add-to-pen-modal").fadeToggle 100
 
-  $("input[type=submit]").click (e) ->
-    e.preventDefault()
-    $(this).addClass "loading"
-
   $(".detention ul").sortable
     connectWith: ".detention ul"
     handle: ".move"
     cursorAt:
       right: 15
       top: 25
-
     placeholder: "sortable-placeholder"
     tolerance: "intersect"
     opacity: 0.95
@@ -30,5 +25,18 @@ $ ->
     cursorAt:
       left: 28
       top: 28
-
     handle: ".move"
+
+  $("#new_detention").on("ajax:beforeSend", ->
+    $(this).find("input[type=submit]").addClass "loading"
+  ).on("ajax:success", (e, data, status, xhr) ->
+    console.log xhr
+  ).on("ajax:error", (e, xhr, status, error) ->
+    $("#error_explanation").remove()
+    $(this).parent().prepend('<div id="error_explanation"></div>')
+    $("#error_explanation")
+        .text("The detention could not be saved. Check the errors.")
+    $.each(xhr.responseJSON, (key,val) ->
+      $("#new_detention #detention_" + key).addClass "error"
+    )
+  )
