@@ -6,7 +6,7 @@
           Create Detention
           .modal-close &times;
         .modal-bottom
-          = form_for(@detention, remote: true) do |f|
+          = form_for(@detention, remote: true, format: :html) do |f|
             .field
               =f.label :student
               =f.select(:student_id, Student.all.collect {|s| [s.name, s.id] })

@@ -29,7 +29,9 @@ class DetentionsController < ApplicationController
 
     respond_to do |format|
       if @detention.save
-        format.json { render action: 'show', status: :created, location: @detention }
+        format.html { render :partial => "detention_row",
+            :locals => {:detention_row => @detention} }
+        # format.json { render action: 'show', status: :created, location: @detention }
       else
         format.json { render json: @detention.errors, status: :unprocessable_entity }
       end

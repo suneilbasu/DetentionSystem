@@ -30,13 +30,18 @@ $ ->
   $("#new_detention").on("ajax:beforeSend", ->
     $(this).find("input[type=submit]").addClass "loading"
   ).on("ajax:success", (e, data, status, xhr) ->
-    console.log xhr
+    $("#add-detention-modal").fadeToggle 100
+    id = "#" + $("#detention_date_1i").val() + $("#detention_date_2i").val() +
+        $("#detention_date_3i").val() + $("#detention_time").val()
+    $(id).append(xhr.responseText).fadeIn 1000
   ).on("ajax:error", (e, xhr, status, error) ->
     $("#error_explanation").remove()
     $(this).parent().prepend('<div id="error_explanation"></div>')
     $("#error_explanation")
-        .text("The detention could not be saved. Check the errors.")
+        .text "The detention could not be saved. Check the errors."
     $.each(xhr.responseJSON, (key,val) ->
       $("#new_detention #detention_" + key).addClass "error"
     )
+  ).on("ajax:complete", ->
+    $(this).find("input[type=submit]").removeClass "loading"
   )
