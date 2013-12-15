@@ -28,6 +28,14 @@ class Detention < ActiveRecord::Base
     dets = Detention.where(date: nil)
   end
 
+  def datetime_for_header
+    "#{date.strftime('%A')} #{time} - #{date.strftime('%-d %b')}"
+  end
+
+  def datetime_for_id
+    "#{date.strftime('%Y%-m%-d')}#{time}"
+  end
+
   private
     def date_is_in_future?
       if self.date < Date.today

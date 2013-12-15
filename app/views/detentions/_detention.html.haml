@@ -1,6 +1,6 @@
 .detention
   .title
-    = "#{detention[0][:date].strftime('%A')} #{detention[0][:time]} - #{detention[0][:date].strftime('%e %b')}"
+    =detention[1][0].datetime_for_header
     .button Register
   - if detention_counter == 0
     .detention-header
@@ -8,5 +8,5 @@
       .detention-reason Reason
       .points Points
 
-  %ul#selector
+  %ul.selector{:id => "#{detention[1][0].datetime_for_id}"}
     = render partial: "detention_row", collection: detention[1]
