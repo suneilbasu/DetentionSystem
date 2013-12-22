@@ -2,7 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$green: #b5d544
+$greenHover: #a7cf1c
+$blue: #24a8dd
+$blueHover: #0b93d3
+$grey: #888d8f
+$greyHover: #4d565a
+
 $fonts = "Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+
+@mixin transition($t) {
+  -webkit-transition: $t
+  -moz-transition: $t
+  -o-transition: $t
+  transition: $t
+}
+
+@mixin border-radius($r) {
+  -moz-border-radius: $r
+  -webkit-border-radius: $r
+  border-radius: $r
+}
+
 body
   font-family: $fonts
   -webkit-font-smoothing: antialiased
@@ -12,30 +33,22 @@ body
 
 a, .button, .modal-close
   text-decoration: none
-  -webkit-transition: background-color 0.25s ease-in-out
-  -moz-transition: background-color 0.25s ease-in-out
-  -o-transition: background-color 0.25s ease-in-out
-  transition: background-color 0.25s ease-in-out
+  @include transition("all 0.25s ease-in-out")
   cursor: pointer
 
 a
-  -webkit-transition: color 0.25s ease-in-out
-  -moz-transition: color 0.25s ease-in-out
-  -o-transition: color 0.25s ease-in-out
-  transition: color 0.25s ease-in-out
+  @include transition("color 0.25s ease-in-out")
 
 .button
-  background: #888d8f
+  background: $grey
   color: white
-  -moz-border-radius: 4px
-  -webkit-border-radius: 4px
-  border-radius: 4px
+  @include border-radius("4px")
   display: inline-block
   font-size: 14px
   padding: 0px 14px 0px 14px
   font-family: "Proxima Nova Semibold"
   &:hover
-    background: #4d565a
+    background: $greyHover
 
 .inner
   padding: 0 20px
@@ -51,9 +64,9 @@ a
     position: absolute
     top: 8px
     right: 0
-    background: #b5d544
+    background: $green
     &:hover
-      background: #a7cf1c
+      background: $greenHover
 
 .name
   font-family: 'Proxima Nova Semibold'
@@ -78,10 +91,7 @@ a
     right: 0
     cursor: pointer
     opacity: 0
-    -webkit-transition: all 0.25s ease-in-out
-    -moz-transition: all 0.25s ease-in-out
-    -o-transition: all 0.25s ease-in-out
-    transition: all 0.25s ease-in-out
+    @include transition("all 0.25s ease-in-out")
     &:hover
       color: white
   &:hover .edit, .edit.active
@@ -97,7 +107,7 @@ a
     left: 20px
     width: 194px
     text-align: center
-    background: #24a8dd
+    background: $blue
   ul li:hover .move
     opacity: 1
   .ui-sortable-helper
@@ -119,9 +129,8 @@ a
     padding: 9px 0
 
 .tag
-  -moz-border-radius: 14px
-  -webkit-border-radius: 14px
-  border-radius: 14px
+
+  @include border-radius("14px")
   width: 14px
   height: 14px
   cursor: pointer
@@ -153,15 +162,10 @@ a
   position: absolute
   top: -3px
   right: 20px
-  -moz-border-radius: 2px
-  -webkit-border-radius: 2px
-  border-radius: 2px
+  @include border-radius("2px")
   opacity: 0
   visibility: hidden
-  -webkit-transition: all 0.25s ease-in-out
-  -moz-transition: all 0.25s ease-in-out
-  -o-transition: all 0.25s ease-in-out
-  transition: all 0.25s ease-in-out
+  @include transition("all 0.25s ease-in-out")
 
 .delete
   width: 14px
@@ -174,10 +178,7 @@ a
   visibility: hidden
   cursor: pointer
   opacity: 0
-  -webkit-transition: all 0.1s ease-in-out
-  -moz-transition: all 0.1s ease-in-out
-  -o-transition: all 0.1s ease-in-out
-  transition: all 0.1s ease-in-out
+  @include transition("all 0.1s ease-in-out")
 
 .delele:hover
   opacity: 1
@@ -249,10 +250,7 @@ header
   background-repeat: no-repeat
   opacity: 0
   cursor: pointer
-  -webkit-transition: all 0.25s ease-in-out
-  -moz-transition: all 0.25s ease-in-out
-  -o-transition: all 0.25s ease-in-out
-  transition: all 0.25s ease-in-out
+  @include transition("all 0.25s ease-in-out")
 
 nav
   display: inline-block
@@ -265,18 +263,18 @@ nav
       display: block
       color: #9ca7ac
       &:hover
-        color: #24a8dd
+        color: $blue
 
 #create-detention
   position: absolute
   top: 14px
   right: 20px
-  background: #24a8dd
+  background: $blue
   &:hover
-    background: #0b93d3
+    background: $blueHover
 
 #add-to-pen:hover
-  background: #0b93d3
+  background: $blueHover
 
 .detention-header
   border-bottom: 1px solid #dbddde
@@ -301,12 +299,11 @@ nav
     ul li
       color: #3a3f41
       margin: 20px 20px 0 20px
-      -webkit-transition: color 0.25s ease-in-out
-      -moz-transition: color 0.25s ease-in-out
-      -o-transition: color 0.25s ease-in-out
-      transition: color 0.25s ease-in-out
+      @include transition("color 0.25s ease-in-out")
       &:hover
         color: #3a3f41
+      &:hover .button
+        opacity: 1
       > div
         display: inline-block
         margin-right: -4px
@@ -325,29 +322,30 @@ nav
     width: 55%
   .points
     width: 5%
+    text-align: center
   .controls
     width: 15%
     text-align: right
+    .button
+      background: none
+      color: #c4c5c6
+      opacity: 0
+      @include transition("opacity 0.25s ease-in-out")
   .move
+    -webkit-border-radius: 80px
+    border-radius: 80px
     width: 32px
     height: 32px
     background-image: asset-url("move.png")
     background-size: 32px 32px
+    background-color: rgba(255, 255, 255, 0.7)
     background-position: center center
     background-repeat: no-repeat
-    cursor: pointer
-    -webkit-transition: all 0.25s ease-in-out
-    -moz-transition: all 0.25s ease-in-out
-    -o-transition: all 0.25s ease-in-out
-    transition: all 0.25s ease-in-out
-    display: inline-block
-    vertical-align: top
     opacity: 0
-    margin-right: 10px
+    cursor: pointer
+    @include transition("all 0.25s ease-in-out")
   ul li:hover .move
-    opacity: 0.4
-  .move:hover
-    opacity: 1 !important
+    opacity: 1
 
 .sortable-placeholder
   background: #0fa3e8
@@ -361,8 +359,7 @@ nav
     height: 6px
     background: #0fa3e8
     content: ''
-    -webkit-border-radius: 6px
-    border-radius: 6px
+    @include border-radius("6px")
     margin-top: -2px
     margin-left: -2px
     position: absolute
@@ -373,15 +370,14 @@ nav
     height: 6px
     background: #0fa3e8
     content: ''
-    -webkit-border-radius: 6px
-    border-radius: 6px
+    @include border-radius("6px")
     margin-top: -2px
     margin-right: -2px
     position: absolute
     top: 0
     right: 0
 
-    //  #content .controls .button{
+    // #content .controls .button{
     //   background: #dbddde;
     // }
     //    #content .controls .button:hover{
@@ -416,10 +412,9 @@ nav
   background: #f1f2f3
   padding: 9px 20px
   color: #adb1b3
-  -webkit-border-radius: 4px 4px 0 0
-  border-radius: 4px 4px 0 0
   font-size: 14px
   font-family: 'Proxima Nova Semibold'
+  @include border-radius("4px 4px 0 0")
   position: relative
 
 .modal-close
@@ -437,8 +432,15 @@ nav
 .modal-bottom
   background: white
   padding: 20px
-  -webkit-border-radius: 0 0 4px 4px
-  border-radius: 0 0 4px 4px
+  @include border-radius("0 0 4px 4px")
+  .save-another
+    position: absolute
+    bottom: 20px
+    right: 20px
+    background: transparent
+    color: $grey
+    &:hover
+      color: $greyHover
 
 .modal
   label
@@ -463,11 +465,9 @@ nav
     input
       width: 170px
     width: 200px
-  input
+  input, textarea
     border: 1px solid #dbddde
-    -moz-border-radius: 4px
-    -webkit-border-radius: 4px
-    border-radius: 4px
+    @include border-radius("4px")
     font-family: 'Proxima Nova Regular', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
     font-size: 14px
     line-height: 14px
@@ -479,10 +479,16 @@ nav
     &[type='submit']
       width: auto
       color: white
+      cursor: pointer
+      background: $green
       outline: none
       padding: 0 14px
       border: none
       line-height: 32px !important
+  .error
+    border-color: #FC9D9A !important
+    -webkit-box-shadow: 0 0 2px 0 rgba(252,157,154,0.9)
+    box-shadow: 0 0 2px 0 rgba(252,157,154,0.9)
 
 .loading
   opacity: 0.5
