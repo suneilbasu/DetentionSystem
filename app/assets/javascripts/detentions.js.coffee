@@ -40,7 +40,7 @@ $ ->
     $("#error_explanation")
         .text "The detention could not be saved. Check the errors."
     $.each(xhr.responseJSON, (key,val) ->
-      $("#new_detention #detention_" + key).addClass "error"
+      $("#detention_" + key).addClass "error"
     )
   ).on("ajax:complete", ->
     $(this).find("input[type=submit]").removeClass "loading"
